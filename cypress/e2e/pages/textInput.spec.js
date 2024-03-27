@@ -1,14 +1,17 @@
-import { textInput } from "../components/textInput/textInput-components.js"
-import { faker } from '@faker-js/faker';
-describe('Visualization of header components', () => {
-    it('ingresar mi nombre en el input', () => {
-        cy.visit('/textinput');
-        textInput.formGroup.inputMyButton.should('exist').and('be.visible');
-        const nombreAleatorio = faker.name.firstName();
-        textInput.formGroup.inputMyButton.type(nombreAleatorio);
-        // Hacer clic en el botón para cambiar su contenido
-        textInput.buttons.buttonToChange.click();
-        // Validar que el contenido del botón sea el mismo que se ingresó en el campo de entrada
-        textInput.buttons.buttonToChange.should('have.text', nombreAleatorio);
-    });
+import LoginPage from '../page_objects/loginPage';
+
+describe('Login', () => {
+  const loginPage = new LoginPage();
+
+  beforeEach(() => {
+    loginPage.visit();
+  });
+
+  it('should login with valid credentials', () => {
+    loginPage.fillEmail('fabian.fica@applydigital.com');
+    loginPage.fillPassword('12345678');
+    loginPage.submit();
+
+    // Agrega aquí tus aserciones para verificar que el inicio de sesión fue exitoso
+  });
 });

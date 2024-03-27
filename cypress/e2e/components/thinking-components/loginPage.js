@@ -1,20 +1,14 @@
 class LoginPage {
-    visit() {
-      cy.visit('https://thinking-tester-contact-list.herokuapp.com'); // La URL de inicio de sesión
-    }
-  
-    fillEmail(email) {
-      cy.get('#email').type(email);
-    }
-  
-    fillPassword(password) {
-      cy.get('#password').type(password);
-    }
-  
-    submit() {
-      cy.get('#submit').submit();
-    }
+  visit() {
+    cy.visit('https://thinking-tester-contact-list.herokuapp.com/login');
   }
-  
-  export default LoginPage;
-  
+
+  fillFormAndSubmit(email, password) {
+    cy.get('#email').type(email);
+    cy.get('#password').type(password);
+    cy.get('#submit').click();
+    
+  }
+}
+
+export default LoginPage;

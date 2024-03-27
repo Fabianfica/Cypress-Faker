@@ -3,7 +3,6 @@ export class ProgressBar {
         return {
             get startButton() {
                 return cy.get ('[id="startButton"]');
-
             }
         }
     }

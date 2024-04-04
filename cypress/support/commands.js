@@ -23,3 +23,30 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+
+//Commands for login
+Cypress.Commands.add('register', (email, password) => {
+    cy.visit('https://naveenautomationlabs.com/opencart/index.php?route=account/login');
+    cy.get('#input-email').type(email);
+    cy.get('#input-password').type(password);
+    cy.get('form > .btn').click();
+})
+
+//comands for search
+Cypress.Commands.add('search', () => {
+    cy.get('.form-control').type('Macbook');
+    cy.get('.input-group-btn > .btn > .fa').click();
+})
+
+//comands for Logout
+Cypress.Commands.add('logout', () => {
+    cy.get('.dropdown > .dropdown-toggle > .fa').click();
+    cy.get('.dropdown-menu > :nth-child(5) > a').click();
+    cy.get('.pull-right > .btn').click();
+})
+
+
+
+

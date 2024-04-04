@@ -38,7 +38,7 @@ describe('Proceso de registro y manejo de contactos', () => {
                     contact.postalCode,
                     contact.country
                 );
-                addContactPage.submitForm();
+                addUserPage.submitForm();
                 
             });
             
